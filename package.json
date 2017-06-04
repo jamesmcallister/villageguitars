@@ -1,0 +1,64 @@
+{
+  "name": "villageguitars",
+  "version": "0.1.0",
+  "private": true,
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2016,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "plugins": [
+      "prettier",
+      "react"
+    ],
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "semi": false,
+          "jsxBracketSameLine": true,
+          "parser": "babylon"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/prop-types": "^15.5.1",
+    "eslint": "^3.19.0",
+    "eslint-config-prettier": "^2.1.1",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^2.1.0",
+    "eslint-plugin-react": "^7.0.0",
+    "prettier": "^1.4.2",
+    "prettier-eslint": "^6.2.3",
+    "prettier-eslint-cli": "^4.0.3",
+    "react-scripts": "^1.0.7"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-ga": "^2.2.0",
+    "react-lazy-load": "^3.0.12",
+    "react-router-dom": "^4.1.1",
+    "tachyons": "^4.7.4",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "scripts": {
+    "format": "prettier-eslint --write \"src/**/*.js\"",
+    "purge": "rm -rf ./node_modules && yarn",
+    "start": "react-scripts start",
+    "build": "rm -rf ./build && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "deploy": "yarn run build && firebase deploy"
+  }
+}
