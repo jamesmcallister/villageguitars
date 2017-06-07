@@ -25,7 +25,7 @@ const ImageInGallery = ({ ImageData, lazyload }) => {
 
   return (
     <div className="fl w-50 w-25-m w-20-l pa2">
-      {lazyload ? <PlainImage /> : <LazyLoading />}
+      {lazyload ? <LazyLoading /> : <PlainImage />}
     </div>
   )
 }

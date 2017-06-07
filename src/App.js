@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import 'whatwg-fetch'
 import { SECRET_CODE, SECRET_PATH } from './env'
-import Header from './Organisms/Header'
 import RouteHome from './Pages/RouteHome'
 import RouteGuitar from './Pages/RouteGuitar'
 import Error404 from './Pages/404'
@@ -43,7 +42,7 @@ class App extends Component {
   readLocalStorage() {
     this.setState({
       loading: false,
-      lazyload: false,
+      lazyload: null,
       store: JSON.parse(localStorage.getItem('vg-store'))
     })
   }
@@ -61,8 +60,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="">
-          <Header />
+        <div>
           <Switch>
             <Route
               path="/"

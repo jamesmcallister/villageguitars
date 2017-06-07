@@ -2,5 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import 'tachyons'
+import registerServiceWorker from './registerServiceWorker'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <App className="bg-light-gray" />,
+  document.getElementById('root')
+)
+registerServiceWorker()

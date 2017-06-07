@@ -15,22 +15,24 @@ if (!process.env.NODE_ENV === 'development') {
 }
 
 class App extends Component {
-  render({ store, loading } = this.props) {
+  render({ store, loading, lazyload } = this.props) {
     const GalleryWithTags = TagsList(store).map((x, key) =>
-      <GalleryTags key={key} TagToDisplay={x} store={store} loading={loading} />
+      <GalleryTags
+        key={key}
+        TagToDisplay={x}
+        store={store}
+        loading={loading}
+        lazyload={lazyload}
+      />
     )
     document.title = `Village Guitars Wingham`
     return (
       <div>
         <div>
-          {loading ? null : <Proclamation store={store} />}
+          {loading ? null : <Proclamation {...this.props} />}
           {loading
             ? null
-            : <GalleryTopPicks
-                title="Top Picks"
-                store={store}
-                loading={loading}
-              />}
+            : <GalleryTopPicks title="Top Picks" {...this.props} />}
         </div>
         <Content />
         {loading ? null : GalleryWithTags}

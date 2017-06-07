@@ -9,7 +9,7 @@ if (!process.env.NODE_ENV === 'development') {
   ReactGA.pageview(window.location.pathname)
   console.log('loading analytics')
 }
-
+// window.scrollTo(0, 0)
 const RouteGuitar = ({ loading, store, params }) => {
   if (loading) {
     return null
