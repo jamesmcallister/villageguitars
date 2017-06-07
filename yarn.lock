@@ -1698,6 +1698,10 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+date-format@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/date-format/-/date-format-1.1.0.tgz#be7df68ec270fd9ec78482bd85be68c8fb8fbebc"
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -4014,6 +4018,10 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   dependencies:
     minimist "0.0.8"
 
+moment@^2.18.1:
+  version "2.18.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
+
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
@@ -4761,9 +4769,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier-eslint-cli@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/prettier-eslint-cli/-/prettier-eslint-cli-4.0.3.tgz#5b9df73365cd1a1d47dabe306ae0dd0066cefe6c"
+prettier-eslint-cli@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/prettier-eslint-cli/-/prettier-eslint-cli-4.0.4.tgz#778ec4ae06c644f1cfac5cd8677fb881338292d6"
   dependencies:
     arrify "^1.0.1"
     babel-runtime "^6.23.0"
@@ -4783,9 +4791,9 @@ prettier-eslint-cli@^4.0.3:
     rxjs "^5.3.0"
     yargs "^7.1.0"
 
-prettier-eslint@^6.0.0, prettier-eslint@^6.2.3:
-  version "6.2.3"
-  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-6.2.3.tgz#3f6acea5104712242b07b5d4646eeba77f5c42f1"
+prettier-eslint@^6.0.0, prettier-eslint@^6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-6.3.0.tgz#2c86ae959439c25d9a9ce8fce90c7bd809b7082f"
   dependencies:
     common-tags "^1.4.0"
     dlv "^1.1.0"
@@ -4793,11 +4801,11 @@ prettier-eslint@^6.0.0, prettier-eslint@^6.2.3:
     indent-string "^3.1.0"
     lodash.merge "^4.6.0"
     loglevel-colored-level-prefix "^1.0.0"
-    prettier "^1.3.0"
-    pretty-format "^19.0.0"
+    prettier "^1.4.2"
+    pretty-format "^20.0.3"
     require-relative "^0.8.7"
 
-prettier@^1.3.0, prettier@^1.4.2:
+prettier@^1.4.2:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.4.2.tgz#bcdd95ed1eca434ac7f98ca26ea4d25a2af6a2ac"
 
@@ -4811,12 +4819,6 @@ pretty-error@^2.0.2:
   dependencies:
     renderkid "^2.0.1"
     utila "~0.4"
-
-pretty-format@^19.0.0:
-  version "19.0.0"
-  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-19.0.0.tgz#56530d32acb98a3fa4851c4e2b9d37b420684c84"
-  dependencies:
-    ansi-styles "^3.0.0"
 
 pretty-format@^20.0.3:
   version "20.0.3"

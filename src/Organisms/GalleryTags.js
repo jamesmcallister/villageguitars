@@ -1,12 +1,7 @@
 import React from 'react'
 import { Title, ImageInGallery } from '../Atoms'
 import { Wrapper } from '../Molecules'
-
-const displayOnWebSite = propsIn =>
-  Object.keys(propsIn)
-    .map(x => propsIn[x])
-    .map(id => id.fields)
-    .filter(fields => fields.DisplayOnWebSite === true)
+import { displayOnWebSite } from '../Helper'
 
 const GalleryWithTags = ({ store, TagToDisplay, show }) => {
   const InstgramGalleryMap = displayOnWebSite(store)

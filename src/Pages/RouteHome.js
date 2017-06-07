@@ -7,9 +7,12 @@ import Content from '../Organisms/Content'
 import ReactGA from 'react-ga'
 import { googleAnalytics } from '../env'
 
-ReactGA.initialize(googleAnalytics)
-ReactGA.set({ page: window.location.pathname })
-ReactGA.pageview(window.location.pathname)
+if (!process.env.NODE_ENV === 'development') {
+  ReactGA.initialize(googleAnalytics)
+  ReactGA.set({ page: window.location.pathname })
+  ReactGA.pageview(window.location.pathname)
+  console.log('loading analytics')
+}
 
 class App extends Component {
   render({ store, loading } = this.props) {

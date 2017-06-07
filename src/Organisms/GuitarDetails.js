@@ -2,10 +2,10 @@ import React from 'react'
 import { safeUrl } from '../Helper.js'
 import { Image } from '../Atoms'
 
-const GuitarDetails = ({ url, ImageData }) => {
+const GuitarDetails = ({ url, store }) => {
   const result = () => {
-    const filterd = Object.keys(ImageData)
-      .map(key => ImageData[key])
+    const filterd = Object.keys(store)
+      .map(key => store[key])
       .map(id => id.fields)
       .filter(fields => safeUrl(fields.Name) === url)
     return filterd ? filterd : null
@@ -13,7 +13,7 @@ const GuitarDetails = ({ url, ImageData }) => {
 
   const { Name, Notes, Attachments } = result()[0]
 
-  document.title = `${Name} - Village Guitars`
+  document.title = `${Name} - Village Guitars Wingham`
 
   return (
     <section className="mw7 center">

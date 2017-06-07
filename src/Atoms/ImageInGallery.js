@@ -5,21 +5,28 @@ import { Image } from '../Atoms'
 import LoadImages from 'react-lazy-load'
 import { safeUrl } from '../Helper'
 
-const ImageInGallery = ({ ImageData }) => {
+const ImageInGallery = ({ ImageData, lazyload }) => {
   ImageInGallery.PropTypes = {
-    'ImageData.Name': PropTypes.object.isRequired
+    'store.Name': PropTypes.object.isRequired,
+    'lazyload.Name': PropTypes.object.isRequired
   }
 
   const url = safeUrl(ImageData.Name)
-  return (
-    <LoadImages
-      offsetVertical={600}
-      key={url}
-      className="fl w-50 w-25-m w-20-l pa2">
-      <Link to={url} className="db link dim tc">
-        <Image {...ImageData} />
-      </Link>
+
+  const PlainImage = () =>
+    <Link to={url} className="db link dim tc">
+      <Image {...ImageData} />
+    </Link>
+
+  const LazyLoading = () =>
+    <LoadImages offsetVertical={600} key={url}>
+      <PlainImage />
     </LoadImages>
+
+  return (
+    <div className="fl w-50 w-25-m w-20-l pa2">
+      {lazyload ? <PlainImage /> : <LazyLoading />}
+    </div>
   )
 }
 

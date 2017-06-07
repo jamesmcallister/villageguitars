@@ -6,6 +6,7 @@ import Header from './Organisms/Header'
 import RouteHome from './Pages/RouteHome'
 import RouteGuitar from './Pages/RouteGuitar'
 import Error404 from './Pages/404'
+import moment from 'moment'
 
 const request = new Request(
   `https://api.airtable.com/v0/${SECRET_PATH}/websitegallery?maxRecords=200&view=Grid%20view`,
@@ -22,18 +23,39 @@ class App extends Component {
     super()
     this.state = {
       loading: true,
-      store: []
+      lazyload: true,
+      store: {}
     }
-    this.fetchStore = this.fetchStore.bind(this)
   }
 
-  fetchStore() {
+  fetchNewData() {
     fetch(request).then(resp => resp.json()).then(resp => {
-      this.setState({ loading: false, store: resp.records })
+      this.setState({
+        loading: false,
+        lazyload: true,
+        store: resp.records
+      })
+      localStorage.setItem('vg-store', JSON.stringify(resp.records))
+      localStorage.setItem('dataAge', JSON.stringify(Date.now()))
     })
   }
+
+  readLocalStorage() {
+    this.setState({
+      loading: false,
+      lazyload: false,
+      store: JSON.parse(localStorage.getItem('vg-store'))
+    })
+  }
+
+  ifOldShallIUpDate() {
+    const lSTime = parseInt(localStorage.getItem('dataAge'), 10)
+    return moment(lSTime).isAfter(moment().subtract(5, 'minute'))
+  }
+
   componentWillMount() {
-    this.fetchStore()
+    localStorage.length === 0 ? this.fetchNewData() : this.readLocalStorage()
+    !this.ifOldShallIUpDate() && this.fetchNewData()
   }
 
   render() {
@@ -45,21 +67,11 @@ class App extends Component {
             <Route
               path="/"
               exact
-              render={({ match }) =>
-                <RouteHome
-                  store={this.state.store}
-                  {...match}
-                  loading={this.state.loading}
-                />}
+              render={({ match }) => <RouteHome {...this.state} {...match} />}
             />
             <Route
               path="/:id"
-              render={({ match }) =>
-                <RouteGuitar
-                  ImageData={this.state.store}
-                  {...match}
-                  loading={this.state.loading}
-                />}
+              render={({ match }) => <RouteGuitar {...this.state} {...match} />}
             />
             <Route component={Error404} />
           </Switch>

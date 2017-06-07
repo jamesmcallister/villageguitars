@@ -3,14 +3,17 @@ import GuitarDetails from '../Organisms/GuitarDetails'
 import ReactGA from 'react-ga'
 import { googleAnalytics } from '../env'
 
-ReactGA.initialize(googleAnalytics)
-ReactGA.set({ page: window.location.pathname })
-ReactGA.pageview(window.location.pathname)
+if (!process.env.NODE_ENV === 'development') {
+  ReactGA.initialize(googleAnalytics)
+  ReactGA.set({ page: window.location.pathname })
+  ReactGA.pageview(window.location.pathname)
+  console.log('loading analytics')
+}
 
-const RouteGuitar = ({ loading, ImageData, params }) => {
+const RouteGuitar = ({ loading, store, params }) => {
   if (loading) {
     return null
-  } else return <GuitarDetails ImageData={ImageData} url={params.id} />
+  } else return <GuitarDetails store={store} url={params.id} />
 }
 
 export default RouteGuitar

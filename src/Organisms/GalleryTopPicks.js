@@ -1,13 +1,11 @@
 import React from 'react'
 import { Title, ImageInGallery } from '../Atoms'
 import { Wrapper } from '../Molecules'
+import { displayOnWebSite } from '../Helper'
 
 const GalleryTopPicks = ({ store, show, title }) => {
-  const InstgramGalleryMap = Object.keys(store)
-    .map(x => store[x])
-    .map(id => id.fields)
+  const InstgramGalleryMap = displayOnWebSite(store)
     .filter(fields => fields.TopPick === true)
-    .filter(fields => fields.DisplayOnWebSite === true)
     .slice(0, 4)
     .map((ImageData, i) =>
       <ImageInGallery key={i} ImageData={ImageData} show={show} />

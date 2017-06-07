@@ -22,3 +22,9 @@ const findUniqueTag = propsIn => {
 }
 
 export const TagsList = props => findUniqueTag(props)
+
+export const displayOnWebSite = propsIn =>
+  Object.keys(propsIn)
+    .map(x => propsIn[x])
+    .map(id => id.fields)
+    .filter(fields => fields.DisplayOnWebSite === true)
